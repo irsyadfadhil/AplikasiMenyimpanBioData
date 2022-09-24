@@ -152,6 +152,32 @@
     resize: none;
   }
   </style>
+  <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table tbody {
+        display: table;
+        width: 100%;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 10px;
+    }
+    th {
+        background-color: rgb(19, 110, 170);
+        color: white;
+    }
+    tr:hover {background-color: #f5f5f5;}
+</style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -167,14 +193,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('/') }}">HOME</a></li>
-        <li><a href="#">FORM</a></li>
+        <li><a href="{{ url('/home_user') }}">HOME</a></li>
+        <li><a href="{{ url('/form_biodata') }}">FORM</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle " data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">USER</span>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url('/actionlogout') }}">Logout</a></li>
           </ul>
         </li>
       </ul>

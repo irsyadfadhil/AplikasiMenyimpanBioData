@@ -17,4 +17,14 @@ use App\Http\Controllers\Home;
 Route::resource('/', Home::class)->parameters(['home' => 'home']);
 
 // Route::resource('/form_biodata', Home::class)->parameters(['form_biodata' => 'form_biodata']);
-Route::get('/form_biodata', [App\Http\Controllers\Home::class, 'form_biodata'])->name('home');
+
+Route::get('/login', [Home::class, 'login'])->name('login');
+
+Route::get('/register', [Home::class, 'register'])->name('register');
+Route::post('register/action', [Home::class, 'actionregister'])->name('actionregister');
+
+Route::post('/actionlogin', [Home::class, 'actionlogin'])->name('actionlogin');
+
+Route::get('/home_user', [Home::class, 'home_user'])->middleware('auth');
+Route::get('/form_biodata', [Home::class, 'form_biodata'])->middleware('auth');
+Route::get('/actionlogout', [Home::class, 'actionlogout'])->name('actionlogout')->middleware('auth');

@@ -15,6 +15,7 @@ class Biodata extends Migration
     {
         Schema::create('biodata', function (Blueprint $table) {
             $table->uuid('id_biodata');
+            $table->uuid('id_user');
             $table->string('posisi_dilamar');
             $table->string('no_ktp');
             $table->string('tempat_lahir');
