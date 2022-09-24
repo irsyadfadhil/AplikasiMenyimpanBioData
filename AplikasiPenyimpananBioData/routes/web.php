@@ -15,3 +15,6 @@ use App\Http\Controllers\Home;
 */
 
 Route::resource('/', Home::class)->parameters(['home' => 'home']);
+
+// Route::resource('/form_biodata', Home::class)->parameters(['form_biodata' => 'form_biodata']);
+Route::get('/form_biodata', [App\Http\Controllers\Home::class, 'form_biodata'])->name('home');

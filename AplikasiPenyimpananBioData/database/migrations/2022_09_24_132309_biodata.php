@@ -33,7 +33,7 @@ class Biodata extends Migration
             $table->uuid('id_riwayat_pekerjaan');
             $table->text('skill');
             $table->integer('bersedia_penempatan');
-            $table->string('penghasilan_yangdiharapkan');
+            $table->string('penghasilan_yang_diharapkan');
             $table->date('tanggal_penandatanganan_biodata');
             $table->string('nama_penandatanganan_biodata');
             $table->timestamps();

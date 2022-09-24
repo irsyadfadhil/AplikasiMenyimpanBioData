@@ -19,7 +19,7 @@ class PendidikanTerakhir extends Migration
             $table->string('jenjang_pendidikan_terakhir');
             $table->string('nama_institusi_akademi');
             $table->string('jurusan');
-            $table->date('tanggal_lahir');
+            $table->date('tahun_lulus');
             $table->integer('ipk');
             $table->timestamps();
         });

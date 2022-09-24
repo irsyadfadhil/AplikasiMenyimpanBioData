@@ -167,7 +167,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">HOME</a></li>
+        <li><a href="{{ url('/') }}">HOME</a></li>
         <li><a href="#">FORM</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle " data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">USER</span>
@@ -181,49 +181,3 @@
     </div>
   </div>
 </nav>
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="{{ asset('gambar/aerial-view-business-data-analysis-graph_53876-13390.jpg') }}" alt="New York" width="1200" height="700">
-        <div class="carousel-caption">
-          <h3>Team Work</h3>
-          <p>The atmosphere of Team Work!</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="{{ asset('gambar/cheerful-young-colleagues-indoors-coworking_171337-746.jpg') }}" alt="Chicago" width="1200" height="700">
-        <div class="carousel-caption">
-          <h3>Disscuse</h3>
-          <p>We Can't do all the things alone!</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="{{ asset('gambar/people-business-meeting-high-angle_23-2148911819.jpg') }}" alt="Los Angeles" width="1200" height="700">
-        <div class="carousel-caption">
-          <h3>Great Team</h3>
-          <p>Even though lots of problem we are one!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>

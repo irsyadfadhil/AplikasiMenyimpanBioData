@@ -14,5 +14,10 @@ class Home extends Controller
         return view('home');
     }
 
+    public function form_biodata()
+    {
+        return view('form_biodata');
+    }
+
 
 }
