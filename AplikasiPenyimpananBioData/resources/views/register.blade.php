@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label><i class="fa fa-user"></i> Name</label>
-                    <input type="text" name="username" class="form-control" placeholder="Username" required="">
+                    <input type="text" name="name" class="form-control" placeholder="name" required="">
                 </div>
                 <div class="form-group">
                     <label><i class="fa fa-key"></i> Password</label>

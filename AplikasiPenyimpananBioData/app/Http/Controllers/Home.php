@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\biodata;
+use App\Models\Biodata as ModelsBiodata;
 use App\Models\RiwayatPekerjaan;
 use App\Models\RiwayatPelatihan;
 use App\Models\RiwayatPendidikan;
@@ -40,6 +41,21 @@ class Home extends Controller
     public function form_biodata()
     {
         return view('form_biodata');
+    }
+
+
+    public function form_biodata_edit(Request $request)
+    {
+        $id = Auth::user()->id;
+        $email = Auth::user()->email;
+
+        if ($email == "admin@gmail.com") {
+            // $data = biodata::where('id_user',$request->id_biodata)->first();
+            $data = biodata::first();
+        } else {
+            $data = biodata::where('id_user',$id)->first();
+        }
+        return view('form_biodata_edit', compact('data'));
     }
 
     public function form_store(Request $request)
@@ -134,6 +150,20 @@ class Home extends Controller
         return redirect('/home_user');
     }
 
+    public function form_store_edit(Request $request)
+    {
+
+        $update_biodata = biodata::update([
+            'nama' => $request->nama,
+            'posisi_dilamar' => $request->posisi_dilamar,
+            'tempat_lahir' => $request->id_biodata,
+            'tanggal_lahir' => $request->tanggal_lahir,
+        ]);
+
+
+        return redirect('/home_user');
+    }
+
     public function login()
     {
         return view('login');
@@ -148,14 +178,14 @@ class Home extends Controller
     {
         $user = User::create([
             'email' => $request->email,
-            'username' => $request->username,
+            'name' => $request->name,
             'password' => Hash::make($request->password),
             'role' => $request->role,
             'active' => 1
         ]);
 
         Session::flash('message', 'Register Berhasil. Akun Anda sudah Aktif silahkan Login menggunakan username dan password.');
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function actionlogin(Request $request)
@@ -179,4 +209,14 @@ class Home extends Controller
         return redirect('/');
     }
 
+
+    public function hapus_biodata(Request $request)
+    {
+        // return $request->id_biodata;
+        $hapus_biodata = Biodata::where('id_biodata', $request->id_biodata)->truncate();
+        $hapus_RiwayatPekerjaan = RiwayatPekerjaan::where('id_biodata', $request->id_biodata)->truncate();
+        $hapus_RiwayatPendidikan = RiwayatPendidikan::where('id_biodata', $request->id_biodata)->truncate();
+        $hapus_RiwayatPelatihan = RiwayatPelatihan::where('id_biodata', $request->id_biodata)->truncate();
+        return redirect('/home_user');
+    }
 }

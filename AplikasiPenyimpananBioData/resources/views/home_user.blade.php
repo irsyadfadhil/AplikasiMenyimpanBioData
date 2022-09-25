@@ -7,6 +7,7 @@
     <h4>Selamat Datang <b>{{Auth::user()->name}}</b>.</h4>
     <p><em>We are passionate Company with great team</em></p>
     <br>
+
     <div class="w3-row w3-grayscale">
         <table style="width:100%;">
             <tr>
@@ -26,9 +27,21 @@
                     <td>{{ $value->tanggal_lahir}}</td>
                     <td>{{ $value->posisi_dilamar}}</td>
                     @if ($email == "admin@gmail.com")
-                        <td>-</td>
+                        <td>
+                        <form class="needs-validation" action="{{ url('/form_biodata_edit') }}" method="GET" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" id="id_biodata" name="id_biodata" value="{{ $value->id_biodata}}">
+                                <input type="submit" class="btn btn-primary" value="Edit"/>
+                        </form>
+                        <br>
+                        <form class="needs-validation" action="{{ url('/delete_data') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" id="id_biodata" name="id_biodata" value="{{ $value->id_biodata}}">
+                            <input type="submit" class="btn btn-primary" value="Delete"/>
+                        </form>
+                        </td>
                     @else
-                        <td>1</td>
+                        <td> </td>
                     @endif
 
 
