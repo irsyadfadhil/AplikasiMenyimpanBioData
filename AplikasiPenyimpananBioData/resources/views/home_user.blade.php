@@ -17,23 +17,24 @@
                 <th>Posisi Dilamar</th>
                 <th>Action</th>
             </tr>
+            @foreach($data as $key => $value)
             <tr>
-                @if( $email == "admin@gmail.com")
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                @else
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                @endif
+
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $value->nama}}</td>
+                    <td>{{ $value->tempat_lahir}}</td>
+                    <td>{{ $value->tanggal_lahir}}</td>
+                    <td>{{ $value->posisi_dilamar}}</td>
+                    @if ($email == "admin@gmail.com")
+                        <td>-</td>
+                    @else
+                        <td>1</td>
+                    @endif
+
+
 
             </tr>
+            @endforeach
             {{-- @foreach($produk as $key => $value)
                 <tr>
                     <td>{{ $value->nomor_urut}}</td>

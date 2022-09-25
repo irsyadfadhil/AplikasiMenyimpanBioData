@@ -27,4 +27,5 @@ Route::post('/actionlogin', [Home::class, 'actionlogin'])->name('actionlogin');
 
 Route::get('/home_user', [Home::class, 'home_user'])->middleware('auth');
 Route::get('/form_biodata', [Home::class, 'form_biodata'])->middleware('auth');
+Route::get('/form_store', [Home::class, 'form_store'])->middleware('auth');
 Route::get('/actionlogout', [Home::class, 'actionlogout'])->name('actionlogout')->middleware('auth');

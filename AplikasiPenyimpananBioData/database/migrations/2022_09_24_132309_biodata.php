@@ -17,6 +17,7 @@ class Biodata extends Migration
             $table->uuid('id_biodata');
             $table->uuid('id_user');
             $table->string('posisi_dilamar');
+            $table->string('nama');
             $table->string('no_ktp');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
